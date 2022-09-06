@@ -9,7 +9,7 @@ pipeline
     stages {
         stage('Build') { 
             steps {
-              docker-compose -f docker-compose-build.yaml build --parallel
+               sh 'docker-compose -f docker-compose-build.yaml build --parallel'
             }
         }
         stage('Test') { 
@@ -27,7 +27,7 @@ pipeline
     }
 }
     }
-   }
+   
 
 
 
