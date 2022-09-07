@@ -1,15 +1,9 @@
 pipeline 
     agent any {
-        environment{
-        
-        registry = "doctorcodes/udagram-api-feed"
-        registryCredential = 'dockerhub'        
-        
-     }
     stages {
         stage('Build') { 
             steps {
-               sh 'docker-compose -f docker-compose-build.yaml build --parallel'
+                docker-compose -f build docker-compose-build.yaml 
             }
         }
         stage('Test') { 
