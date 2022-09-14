@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: docker.io/doctorcodes/udagram-frontend:v15
+        image: docker.io/doctorcodes/udagram-frontend:latest
         ports:
         - containerPort: 80
         resources:
