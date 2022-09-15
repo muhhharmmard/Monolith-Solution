@@ -23,3 +23,4 @@ kubectl describe hpa
 ```bash
 kubectl logs {pod_name}
 ```
+## Submitting the first part of the exercise
