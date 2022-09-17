@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reverseproxy
+  name: reverseproxy7
   labels:
-    service: reverseproxy
+    service: reverseproxy7
 spec:
   replicas: 2
   selector:
     matchLabels:
-      service: reverseproxy
+      service: reverseproxy7
   template:
     metadata:
       labels:
-        service: reverseproxy
+        service: reverseproxy7
     spec:
       containers:
-      - image: docker.io/doctorcodes/udagram-reverseproxy:latest
-        name: reverseproxy
+      - image: docker.io/doctorcodes/udagram-reverseproxy:v1
+        name: reverseproxy1
         imagePullPolicy: Always
         resources:
           requests:
             memory: "64Mi"
-            cpu: "250m"
+            cpu: "500m"
           limits:
             memory: "1024Mi"
-            cpu: "500m"
+            cpu: "1000m"
         ports:
         - containerPort: 8080
         env:
@@ -74,3 +74,17 @@ spec:
               name: env-config
               key: JWT_SECRET
       restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: reverseproxy7
+  name: reverseproxy7
+spec:
+  ports:
+  - name: "8080"
+    port: 8080
+    targetPort: 8080
+  selector:
+    service: reverseproxy1

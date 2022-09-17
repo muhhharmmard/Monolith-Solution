@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-config
+data:
+  POSTGRES_HOST: myfinalmonolith.cdjm4ghbxuon.us-east-1.rds.amazonaws.com
+  POSTGRES_DB: myfinalmonolith
+  AWS_BUCKET: myfinalmonolith
+  AWS_REGION: us-east-1
+  AWS_PROFILE: default
+  JWT_SECRET: test
+  URL: http://localhost:8100

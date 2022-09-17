@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: frontend1
 spec:
   selector:
     matchLabels:
-      run: frontend
+      run: frontend1
   replicas: 2
   template:
     metadata:
       labels:
-        run: frontend
+        run: frontend1
     spec:
       containers:
-      - name: frontend
+      - name: frontend1
         image: docker.io/doctorcodes/udagram-frontend:latest
         ports:
         - containerPort: 80
